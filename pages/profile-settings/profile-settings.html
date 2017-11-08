@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar primary>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+    <ion-buttons right>
+      <button ion-button color="primary" (click)="editProfile(userData)">Edit</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+      <ion-list>
+        <ion-list-header>
+          <ion-avatar item-start>
+            <img [src]="(userData | async)?.userImage ? (userData | async)?.userImage : placeholder_pic" />
+          </ion-avatar>
+          <p class="username">
+            {{(userData | async)?.userName}}
+          </p>
+          <p>Owner</p>
+        </ion-list-header>
+      </ion-list>
+      <ion-list no-border>
+        <ion-list-header>
+          General
+        </ion-list-header>
+        <ion-item>
+          <ion-icon name='body' item-start></ion-icon>
+          <ion-label>Gender :</ion-label>
+            <p class="gender">
+              {{(userData | async )?.gender}}
+            </p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name='calendar' item-start></ion-icon>
+          <ion-label>Date of Birth :</ion-label>
+          <p class="dateofbirth">
+            {{(userData | async )?.dateofbirth}}
+          </p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name='contact' item-start></ion-icon>
+          <ion-label>Contact :</ion-label>
+          <p class="contact">
+            {{(userData | async )?.contact}}
+          </p>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-list-header>
+            Other
+          </ion-list-header>
+          <ion-item>
+            <ion-buttons>
+              <ion-icon name='log-out' item-start></ion-icon>
+              <button ion-button color="light" (click)="logout()">Logout</button>
+            </ion-buttons>
+          </ion-item>
+        </ion-list> 
+</ion-content>

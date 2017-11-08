@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar primary>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+    <ion-buttons right>
+      <button ion-button color="primary" (click)="editProfile(userData)">Edit</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+      <ion-list>
+        <ion-list-header>
+          <ion-avatar item-start>
+            <img [src]="(userData | async)?.userImage ? (userData | async)?.userImage : placeholder_pic" />
+          </ion-avatar>
+          <p class="username">
+            {{(userData | async)?.userName}}
+          </p>
+          <p>Owner</p>
+        </ion-list-header>
+        </ion-list>
+      <ion-list no-border>
+        <ion-list-header>
+          General
+        </ion-list-header>
+        <ion-item>
+          <ion-icon name='body' item-start></ion-icon>
+          <ion-label>Gender : {{(userData | async )?.gender}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name='calendar' item-start></ion-icon>
+          <ion-label>Date of Birth : {{(userData | async )?.dateofbirth}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name='contact' item-start></ion-icon>
+          <ion-label>Contact : {{(userData | async )?.contact}}</ion-label>
+        </ion-item>
+      </ion-list>
+</ion-content>
